@@ -1,0 +1,9 @@
+{
+    "extensions.experimental.deferredStartupFinishedActivation": true,
+    "cSpell.ignoreRegExpList": [
+        "hoovercj.vscode-power-mode"
+    ],
+    "terminal.integrated.commandsToSkipShell": [
+        "hoovercj.vscode-power-mode"
+    ]
+}
