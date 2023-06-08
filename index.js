@@ -28,9 +28,16 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 const classCollection =client.db("bandZoon").collection("classes")
-
+const instructorCollection =client.db("bandZoon").collection("Instructor")
+const bookingCollection =client.db("bandZoon").collection("class")
+//  classes data 
 app.get('/classes',async(req,res)=>{
     const result = await classCollection.find().toArray()
+    res.send(result)
+})
+// 
+app.get('/instructor',async(req,res)=>{
+    const result = await instructorCollection.find().toArray()
     res.send(result)
 })
 
