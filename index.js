@@ -38,7 +38,16 @@ app.get('/classes',async(req,res)=>{
 // 
 app.get('/instructor',async(req,res)=>{
     const result = await instructorCollection.find().toArray()
-    res.send(result)
+    res.send(result);
+})
+
+// Selected Class post
+app.post('/selected',async(req,res)=>{
+    const booking = req.body;
+    console.log(booking);
+    const result = await bookingCollection.insertOne(booking);
+    res.send(result);
+
 })
 
     // Send a ping to confirm a successful connection
