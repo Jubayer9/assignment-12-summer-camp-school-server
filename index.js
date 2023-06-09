@@ -61,6 +61,7 @@ async function run() {
             res.send(result);
 
         })
+        
 // delete Operator. 
 app.delete('/selected/:id',async(req,res)=>{
     const id = req.params.id
