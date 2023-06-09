@@ -30,12 +30,27 @@ async function run() {
         const classCollection = client.db("bandZoon").collection("classes")
         const instructorCollection = client.db("bandZoon").collection("Instructor")
         const bookingCollection = client.db("bandZoon").collection("class")
+        const studentsCollection = client.db("bandZoon").collection("students")
+
+        // students api
+        app.post('/students', async (req, res) => {
+            const students = req.body;
+            const query = {email:students.email}
+            const existingStudent =await studentsCollection.findOne(query)
+            if(existingStudent){
+                return res.send({message:'user already exists'})
+            }
+            const result = await studentsCollection.insertOne(students);
+            res.send(result);
+
+        })
+
         //  classes data 
         app.get('/classes', async (req, res) => {
             const result = await classCollection.find().toArray()
             res.send(result)
         })
-        // 
+        // instructor relates Operation
         app.get('/instructor', async (req, res) => {
             const result = await instructorCollection.find().toArray()
             res.send(result);
@@ -61,16 +76,16 @@ async function run() {
             res.send(result);
 
         })
+
+        // delete Operator. 
+        app.delete('/selected/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: new ObjectId(id) }
+            const result = await bookingCollection.deleteOne(query)
+            res.send(result)
+console.log(result);
+        })
         
-// delete Operator. 
-app.delete('/selected/:id',async(req,res)=>{
-    const id = req.params.id
-    const query ={_id:new ObjectId(id) }
-    const result = await bookingCollection.deleteOne(query)
-    res.send(result)
-
-})
-
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
