@@ -221,106 +221,11 @@ async function run() {
             const query = { _id: new ObjectId(id) }
             const result = await bookingCollection.deleteOne(query)
             res.send(result)
+            
         })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // app.patch('/classes/approve/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const filter = { _id: new ObjectId(id) };
-        //     const updateDoc = { $set: { status: 'approved' } };
-        //     const result = await classCollection.updateOne(filter, updateDoc);
-        //     res.send(result);
-        //   });
-
-        //   app.patch('/classes/deny/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const filter = { _id: new ObjectId(id) };
-        //     const updateDoc = { $set: { status: 'denied' } };
-        //     const result = await classCollection.updateOne(filter, updateDoc);
-        //     res.send(result);
-        //   });
-
-        //   app.post('/classes/feedback/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const { feedback } = req.body;
-        //     const filter = { _id: new ObjectId(id) };
-        //     const updateDoc = { $set: { feedback } };
-        //     const result = await classCollection.updateOne(filter, updateDoc);
-        //     res.send(result);
-        //   });
-
-        //   // Manage Users - Make Instructor and Make Admin routes
-
-        //   app.patch('/users/make-instructor/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const filter = { _id: new ObjectId(id) };
-        //     const updateDoc = { $set: { role: 'instructor' } };
-        //     const result = await studentsCollection.updateOne(filter, updateDoc);
-        //     res.send(result);
-        //   });
-
-        //   app.patch('/users/make-admin/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const filter = { _id: new ObjectId(id) };
-        //     const updateDoc = { $set: { role: 'admin' } };
-        //     const result = await studentsCollection.updateOne(filter, updateDoc);
-        //     res.send(result);
-        //   });
-
-
-
-
-
-        //   // Get specific user by ID
-        //   app.get('/users/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const query = { _id: new ObjectId(id) };
-        //     const result = await studentsCollection.findOne(query);
-        //     res.send(result);
-        //   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+       
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
