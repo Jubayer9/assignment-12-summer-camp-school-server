@@ -46,6 +46,8 @@ async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
+
+        
         const classCollection = client.db("bandZoon").collection("classes")
         const paymentCollection = client.db("bandZoon").collection("payments")
         const instructorCollection = client.db("bandZoon").collection("Instructor")
@@ -221,7 +223,7 @@ async function run() {
             const query = { _id: new ObjectId(id) }
             const result = await bookingCollection.deleteOne(query)
             res.send(result)
-            
+
         })
 
         
